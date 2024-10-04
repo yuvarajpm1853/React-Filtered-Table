@@ -23,7 +23,10 @@ function App() {
         </thead>
         <tbody>
           {data.filter(item=>{
-            return search === ""? item : item.first_name.toLowerCase().includes(search.toLowerCase())
+            return search === ""? item : 
+            item.first_name.toLowerCase().includes(search.toLowerCase()) || item.last_name.toLowerCase().includes(search.toLowerCase()) ||
+            item.email.toLowerCase().includes(search.toLowerCase()) || item.gender.toLowerCase().includes(search.toLowerCase()) ||
+            item.phone_number.toLowerCase().includes(search.toLowerCase())
           })
           .map((item,index)=>(
             <tr key={index}>
