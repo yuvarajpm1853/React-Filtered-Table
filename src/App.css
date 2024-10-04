@@ -1,0 +1,12 @@
+h3{
+    font-weight: 500;
+}
+input{
+    display: block;
+    outline: none;
+    margin-bottom: 10px;
+    width: 25vw;
+}
+table{
+    text-align: center;
+}

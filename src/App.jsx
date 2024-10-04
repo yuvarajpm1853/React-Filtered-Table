@@ -10,10 +10,12 @@ function App() {
       <label htmlFor="filter">
       <h3>Filter Table Data</h3>
       </label>
-      <input type="search" name="filter" id="filter" onChange={e=>setSearch(e.target.value)}/>
-      <table>
-        <thead>
+      <input type="search" name="filter" id="filter" 
+      placeholder='Enter to search' onChange={e=>setSearch(e.target.value)}/>
+      <table className='table table-hover table-bordered'>
+        <thead className='table-light'>
           <tr>
+            <th>ID No</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
@@ -30,6 +32,7 @@ function App() {
           })
           .map((item,index)=>(
             <tr key={index}>
+              <td>{item.id}</td>
               <td>{item.first_name}</td>
               <td>{item.last_name}</td>
               <td>{item.email}</td>
