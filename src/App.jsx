@@ -3,14 +3,14 @@ import './App.css'
 import { data } from './data.js'
 
 function App() {
-  // console.log(data);
+  const [search, setSearch] = useState("")
   return (
     <>
     <div className="container">
       <label htmlFor="filter">
       <h3>Filter Table Data</h3>
       </label>
-      <input type="search" name="filter" id="filter" />
+      <input type="search" name="filter" id="filter" onChange={e=>setSearch(e.target.value)}/>
       <table>
         <thead>
           <tr>
@@ -22,7 +22,10 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {data.map((item,index)=>(
+          {data.filter(item=>{
+            return search === ""? item : item.first_name.toLowerCase().includes(search.toLowerCase())
+          })
+          .map((item,index)=>(
             <tr key={index}>
               <td>{item.first_name}</td>
               <td>{item.last_name}</td>
